@@ -1,16 +1,20 @@
-var promise = new Promise(function(resolve, reject) {
-    var success = true;
+var promise = new Promise(function(resolveCb, rejectCb) {
+    var success = false;
 
     if (success) {
-        resolve("Stuff worked!");
+        resolveCb("Stuff worked!");
     }
     else {
-        reject(Error("It broke"));
+        rejectCb(new Error("It broke"));
     }
 });
 
-promise.then(function(result) {
+promise.then(resolveCallback, rejectCallback);
+
+function resolveCallback(result) {
     console.log(result); // "Stuff worked!"
-}, function(err) {
-    console.log(err); // Error: "It broke"
-});
+}
+
+function rejectCallback(err) {
+    console.error(err); // Error: "It broke"
+}
