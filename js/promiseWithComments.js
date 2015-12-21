@@ -11,15 +11,15 @@ var promise = new Promise(function(A, B) {
     }
 });
 
-// allright - do it, when your finished call one of those functions i give you
+// alright - do it, when your finished call one of those functions i give you
 promise.then(CallbackA, CallbackB);
 
-// i ouput A and the variable something
+// i output A and the variable something
 function CallbackA(something) {
     console.log('Output A: ' + something);
 }
 
-// i ouput B and the variable result
+// i output B and the variable result
 function CallbackB(something) {
     console.log('Output B: ' + something);
 }
